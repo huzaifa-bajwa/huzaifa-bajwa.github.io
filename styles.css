@@ -1,0 +1,239 @@
+body {
+  font-family: 'Heebo', sans-serif;
+  font-weight: 400;
+  padding-bottom: 5%;
+}
+
+a{
+  text-decoration: none;
+}
+
+a.navbar-links{
+  color: black !important;
+  font-size: 20px;
+}
+
+#navbar {
+  display: none;
+  justify-content: flex-end;
+  flex-direction: row;
+  column-gap: 50px;
+  padding: 10px 40px;
+  font-weight: 500;
+}
+
+#backdrop{
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column-reverse;
+  text-align: center;
+  column-gap: 50px;
+  padding: 3% 8%;
+  margin :4%;
+}
+
+/*#backdrop>div{
+  border: solid red;
+}
+
+/*Left Column start*/
+#bd-left{
+  width:100%;
+  color: #05228a;
+}
+
+#bd-left>h1{
+  font-weight:700;
+  font-size: 32px;
+}
+
+#bd-left>p{
+  font-weight:400;
+  font-size: 16px;
+}
+
+#bd-left>button{
+  background-color: rgba(180, 43, 8, 0.952);
+  padding: 10px 10px;
+  border: none;
+}
+
+#bd-left>button>a{
+  font-weight:500;
+  font-size: 18px;
+  color: white !important;
+}
+/*Left Column end*/
+
+
+/*Right Column start*/
+#bd-right{
+  width:100%;
+  text-align: center;
+}
+
+#dp{
+  width: 200px;
+}
+
+/*Right Column end*/
+
+/*Blog Posts start*/
+#rec-blog-posts{
+  background-color: rgb(228, 222, 233);
+  padding: 1.5% 1%;
+}
+
+#rec-posts-head{
+  display: flex;
+  justify-content: space-between;
+}
+
+h4.mod-h4{
+  margin: 0;
+  font-weight: 400;
+  font-size: 20px;
+  color: #05228a;
+}
+
+#card-container{
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+}
+
+div.cards{
+  color: #05228a;
+  font-weight: 400;
+  background-color: white;
+  border-radius: 5px;
+  padding: 20px 20px;
+  width: 87%;
+}
+
+div.cards>span{
+  font-size: 16px;
+  padding: 5px 10px;
+}
+
+h2.mod-h2{
+  color: #05228a;
+  font-weight: 700;
+  font-size: 25px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+div.cards>p{
+  font-size: 16px;
+}
+/*Blog Posts send*/
+
+/*Featured Works start*/
+#featured-works{
+  padding: 2% 8%;
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+}
+
+div.work-card{
+  display: flex;
+  flex-direction: column;
+  row-gap: 2%;
+}
+
+span.pill{
+  background-color: darkblue;
+  border-radius: 15px;
+  color: white;
+  padding: 3px 13px;
+  font-weight: 700;
+  font-size: 16px;
+}
+
+span.secondary-text{
+  color: rgba(20, 20, 20, 0.412);
+  font-size: 16px;
+  margin-left: 20px;
+}
+
+div.work-card>div>p{
+  font-size: 16px;
+}
+
+div.work-card>img{
+  border-radius: 4%;
+}
+
+/*Social Media starts*/
+
+#social-media{
+  text-align: center;
+  font-size: 30px;
+  display: flex;
+  column-gap: 15px;
+  justify-content: center;
+  align-items: baseline;
+}
+
+#social-media>i{
+  color: rgb(38, 0, 255) !important;
+  text-decoration: none;
+}
+
+#rights{
+  text-align: center;
+  font-size: 14px;
+  font-weight: 400;
+}
+/*Social Media ends*/
+
+@media screen and (min-width:500px) {
+ 
+  #backdrop{
+    flex-direction: row;
+    text-align: left;
+  }
+
+  #bd-left{
+      width:50%;
+      color: #05228a;
+  }
+  #bd-left>h1{
+    font-weight:700;
+    font-size: 44px;
+  }
+
+  #bd-right{
+    width:40%
+  }
+  
+  #navbar{
+    display:flex;
+  }
+
+  #dp{
+      width: 300px;
+  }
+
+  #card-container{
+    flex-direction: row;
+    column-gap: 1%;
+  }
+
+  #rec-blog-posts{
+    padding: 1.5% 8%;
+  }
+
+  div.work-card{
+    display: flex;
+    flex-direction: row;
+    column-gap: 2%;
+  }
+
+  div.cards{
+    width: 100%;
+  }
+}
