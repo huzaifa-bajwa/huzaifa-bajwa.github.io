@@ -20,7 +20,7 @@ a.navbar-links{
   justify-content: flex-end;
   flex-direction: row;
   column-gap: 50px;
-  padding: 10px 40px;
+  padding: 0px 40px;
   font-weight: 500;
 }
 
@@ -170,6 +170,7 @@ div.work-card>div>p{
 div.work-card>img{
   border-radius: 4%;
 }
+
 
 /*Social Media starts*/
 
