@@ -12,7 +12,7 @@ async function getIP(){
   const jsonObj = await request.json()
   document.getElementById('location').innerHTML = `You are currently present at ${jsonObj.city}, ${jsonObj.region}, ${jsonObj.country}.`
 
-  const weatherReq = await fetch(`http://api.weatherapi.com/v1/current.json?key=9eff55cd1e2042779a1141950220407&q=${jsonObj.city}&aqi=no`)
+  const weatherReq = await fetch(`https://api.weatherapi.com/v1/current.json?key=9eff55cd1e2042779a1141950220407&q=${jsonObj.city}&aqi=no`)
   const weatherObj = await weatherReq.json()
   console.log(weatherObj)
   document.getElementById('weather').innerHTML = `The temperature here is ${weatherObj.current.temp_c}C and it feels like ${weatherObj.current.feelslike_c}C<br><b>${weatherObj.current.condition.text}</b>.`
