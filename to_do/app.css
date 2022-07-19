@@ -88,13 +88,11 @@ li>i{
     
     #background-cover input{
         width: 40vw;
-        height: 2rem;
     }
     
     #background-cover button{
         width: 1rem; 
-        margin-left: 61vw;
-        height: 1.5rem;
+        margin-left: 65vw;
     }
     
     #tasks{

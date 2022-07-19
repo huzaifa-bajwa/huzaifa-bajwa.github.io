@@ -10,31 +10,22 @@
     <script src="https://kit.fontawesome.com/a36d6836ef.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="app.css">
 
+    <!-- React DOM -->
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <!-- React DOM -->
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <!-- Babel -->
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
 </head>
 <body>
     
-    <div id="background-cover">
+    <div id="background-cover"></div>
+    
 
-        <p class="header">Bucket List <i class="fa-solid fa-bucket"></i></p>
-
-        <form name="my-form">
-
-            <input name="task" type="text" class="header" placeholder="Enter Text">
-            <button type="submit" class="header"><i class="fa-solid fa-plus"></i></button>
-
-        </form>    
-        
-    </div>
-
-    <div id="tasks">
-
-        <ul id="list">
-
-        </ul>
-
-    </div>
-
-    <script src="app.js"></script>
+    <script type="text/babel" src="app.js"></script>
 
 </body>
 </html>
+
+    <!--/*list.innerHTML += `<li>${input.value}<i onclick=crossOut(this) class="fa-solid fa-xmark"></i></li>`*/-->
