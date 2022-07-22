@@ -7,48 +7,24 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Pompiere&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/95f90e204b.js" crossorigin="anonymous"></script>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    
     <link id="styles" rel="stylesheet" href="stylesheet.css">
+
+     <!-- React DOM -->
+     <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+     <!-- React DOM -->
+     <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+     <!-- Babel -->
+     <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
 
     <title>Get Local Info</title>
 
 </head>
 <body>
 
-    <button id="night-mode" onclick="blacken()"><i class="fa-solid fa-moon"></i>Night Mode</button>
-    <button id="day-mode" onclick="brighten()"><i class="fa-solid fa-sun"></i>Light Mode</button>
-
-    <img id="surprise" src="dark.jpg" alt="">
-
-    <div id="backdrop">
-
-      <img id="wallpaper" src="images.jpg" alt="">
-      <div></div>
-      <p>Get Local Info</p>
-      <button id="ip-get" onclick="getIP()">Click me</button>
-
-    </div>
+    <div id="body-text"></div>
     
-    <div id="main-content">
-
-      <p style="font-size: 26px;"><b>Your Info:</b></p>
-      <button type="button" class="collapsible">IP</button>
-      <div class="content">
-        <p id="ip-field">Please send request first!</p>
-      </div>
-      <button type="button" class="collapsible">Location</button>
-      <div class="content">
-        <p id="location">Please send request first!</p>
-      </div>
-      <button type="button" class="collapsible">Weather</button>
-      <div class="content">
-        <p id="weather">Please send request first!</p>
-      </div>
-    
-    </div>
-
-    <script src="code.js"></script>
+    <script type="text/babel" src="code.js"></script>
 
 </body>
 </html>

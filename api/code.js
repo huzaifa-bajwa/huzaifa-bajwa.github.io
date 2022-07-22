@@ -1,81 +1,116 @@
-const api_url = "https://api.ipify.org?format=json"
+const apiUrl = "https://api.ipify.org?format=json"
 
-async function getIP(){
-  try{
+const PageComponent = () => {
+
+  const [userIp, setIp] = React.useState("Please send request first!")
+  const [userLocation, setLocation] = React.useState("Please send request first!")
+  const [userWeather, setWeather] = React.useState("Please send request first!")
+
+  const blacken = function (){
   
-  const response = await fetch(api_url)
+    const surp = document.getElementById("surprise")
+    console.log(surp)
+    surp.style.zIndex = 4
+  
+    setTimeout(function(){
+      surp.style.zIndex = -1
+      surp.src = "light.jpg"
+    },3000)
+  
+    document.getElementById("wallpaper").src = 'images2.jpg'
+  
+    const nightStyle = document.getElementById("styles")
+    nightStyle.href = "stylesheetDark.css"
+    
+  }
+  
+  const brighten = function(){
+  
+     
+    const surp = document.getElementById("surprise")
+    console.log(surp)
+    surp.style.zIndex = 4
+  
+    setTimeout(function(){
+      surp.style.zIndex = -1
+      surp.src = "dark.jpg"
+    },3000)
+  
+    document.getElementById("wallpaper").src = 'images.jpg'
+  
+    const nightStyle = document.getElementById("styles")
+    nightStyle.href = "stylesheet.css"
+  
+  }
 
-  ipObj = await response.json()
-  document.getElementById('ip-field').innerHTML = ipObj.ip
+  async function getIP(){
+    try{
+    console.log("success")
+    const ipRequest = await fetch(apiUrl);
+    const ipObj = await ipRequest.json();
+    setIp(ipObj.ip);
 
-  const request = await fetch(`https://ipinfo.io/${ipObj.ip}?token=161bd7cd28fb98`)
-  const jsonObj = await request.json()
-  document.getElementById('location').innerHTML = `You are currently present at ${jsonObj.city}, ${jsonObj.region}, ${jsonObj.country}.`
+    const locationRequest = await fetch(`https://ipinfo.io/${ipObj.ip}?token=161bd7cd28fb98`)
+    const locationObj = await locationRequest.json()
+    setLocation(locationObj.city)
 
-  const weatherReq = await fetch(`https://api.weatherapi.com/v1/current.json?key=9eff55cd1e2042779a1141950220407&q=${jsonObj.city}&aqi=no`)
-  const weatherObj = await weatherReq.json()
-  console.log(weatherObj)
-  document.getElementById('weather').innerHTML = `The temperature here is ${weatherObj.current.temp_c}C and it feels like ${weatherObj.current.feelslike_c}C<br><b>${weatherObj.current.condition.text}</b>.`
+    const weatherRequest = await fetch(`https://api.weatherapi.com/v1/current.json?key=9eff55cd1e2042779a1141950220407&q=${locationObj.city}&aqi=no`)
+    const weatherObj = await weatherRequest.json()
+    setWeather(`The temperature here is ${weatherObj.current.temp_c}C and it feels like ${weatherObj.current.feelslike_c}C<br><b>${weatherObj.current.condition.text}</b>`)
 
   }
-  catch{
-    alert("Could not fetch, try again!")
+    catch(e){
+    alert("Could not fetch, try again!");
   }
 }
 
-const blacken = () => {
-  
-  const surp = document.getElementById("surprise")
-  console.log(surp)
-  surp.style.zIndex = 4
-
-  setTimeout(function(){
-    surp.style.zIndex = -1
-    surp.src = "light.jpg"
-  },3000)
-
-  document.getElementById("wallpaper").src = 'images2.jpg'
-
-  const nightStyle = document.getElementById("styles")
-  nightStyle.href = "stylesheetDark.css"
-  
-}
-
-const brighten = () => {
-
-   
-  const surp = document.getElementById("surprise")
-  console.log(surp)
-  surp.style.zIndex = 4
-
-  setTimeout(function(){
-    surp.style.zIndex = -1
-    surp.src = "dark.jpg"
-  },3000)
-
-  document.getElementById("wallpaper").src = 'images.jpg'
-
-  const nightStyle = document.getElementById("styles")
-  nightStyle.href = "stylesheet.css"
-
-}
-
-//Colapsible Code
-var coll = document.getElementsByClassName("collapsible");
-  for (let i = 0; i < coll.length; i++) {
-    coll[i].addEventListener("click", function() {
-      this.classList.toggle("active");
-      var content = this.nextElementSibling;
-      if (content.style.display === "block") {
-        content.style.display = "none";
-      } else {
-        content.style.display = "block";
-      }
-    });
+  const collapse = function(e){
+    e.target.classList.toggle("active");
+    var content = e.target.nextElementSibling;
+    if (content.style.display === "block") {
+      content.style.display = "none";
+    } else {
+      content.style.display = "block";
+    }
   }
 
-//Text to collapsibles
- 
+  return(
+    <div>
+      <button id="night-mode" onClick={blacken}><i className="fa-solid fa-moon"></i>Night Mode</button>
+      <button id="day-mode" onClick={brighten}><i className="fa-solid fa-sun"></i>Light Mode</button>
 
+      <img id="surprise" src="dark.jpg"></img>
 
-  
+      <div id="backdrop">
+
+        <img id="wallpaper" src="images.jpg"></img>
+        <div></div>
+        <p>Get Local Info</p>
+        <button id="ip-get" onClick={getIP}>Click me</button>
+
+      </div>
+      
+      <div id="main-content">
+
+        <p><b>Your Info:</b></p>
+        <button type="button" className="collapsible" onClick={collapse}>IP</button>
+        <div className="content">
+          <p id="ip-field">{userIp}</p>
+        </div>
+        <button type="button" className="collapsible" onClick={collapse}>Location</button>
+        <div className="content">
+          <p id="location">{userLocation}</p>
+        </div>
+        <button type="button" className="collapsible" onClick={collapse}>Weather</button>
+        <div className="content">
+          <p id="weather" dangerouslySetInnerHTML={{__html: userWeather}}></p>
+        </div>
+      
+        </div>
+
+      </div>
+  )
+}
+
+const root = ReactDOM.createRoot(document.getElementById("body-text"))
+root.render(<PageComponent />)
