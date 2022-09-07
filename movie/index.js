@@ -1,4 +1,4 @@
-const requestUrl = "http://www.omdbapi.com/";
+const requestUrl = "https://www.omdbapi.com/";
 const config = {
   renderOption(movie) {
     const imgSrc = movie.Poster === "N/A" ? "" : movie.Poster;
