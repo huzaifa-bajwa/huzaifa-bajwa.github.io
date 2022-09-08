@@ -1,4 +1,3 @@
-const requestUrl = "https://www.omdbapi.com/";
 const config = {
   renderOption(movie) {
     const imgSrc = movie.Poster === "N/A" ? "" : movie.Poster;
@@ -11,7 +10,7 @@ const config = {
     return movie.Title;
   },
   async fetchData(searchTerm) {
-    const response = await axios.get(requestUrl, {
+    const response = await axios.get("https://www.omdbapi.com/", {
       params: {
         apikey: "12bb4c8d",
         s: searchTerm,
@@ -45,7 +44,7 @@ autoComplete({
 let leftMovie;
 let rightMovie;
 const onMovieSelect = async (movie, summaryRoot, side) => {
-  const response = await axios.get(requestUrl, {
+  const response = await axios.get("https://www.omdbapi.com/", {
     params: {
       apikey: "12bb4c8d",
       i: movie.imdbID,
